@@ -1,8 +1,8 @@
 package com.android.artgallery.presentation.album
 
-import android.databinding.DataBindingUtil
-import android.databinding.ViewDataBinding
-import android.support.v7.widget.RecyclerView
+import androidx.databinding.DataBindingUtil
+import androidx.databinding.ViewDataBinding
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.android.artgallery.R
@@ -18,7 +18,7 @@ import java.util.*
  * Created by ZARA on 27/01/2019.
  */
 internal class AlbumsAdapter(val mListener: OnAlbumsAdapterListener) :
-    RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+    androidx.recyclerview.widget.RecyclerView.Adapter<androidx.recyclerview.widget.RecyclerView.ViewHolder>() {
 
     private val TAG = AlbumsAdapter::class.java.name
     private val albums: MutableList<Album> = ArrayList()
@@ -28,7 +28,7 @@ internal class AlbumsAdapter(val mListener: OnAlbumsAdapterListener) :
      * This method is called right when adapter is created &
      * is used to initialize ViewHolders
      * */
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): androidx.recyclerview.widget.RecyclerView.ViewHolder {
         val holderAlbumBinding = DataBindingUtil.inflate<ViewDataBinding>(
             LayoutInflater.from(parent.context), R.layout.holder_album, parent, false
         )
@@ -38,7 +38,7 @@ internal class AlbumsAdapter(val mListener: OnAlbumsAdapterListener) :
     /** It is called for each ViewHolder to bind it to the adapter &
      * This is where we pass data to ViewHolder
      * */
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: androidx.recyclerview.widget.RecyclerView.ViewHolder, position: Int) {
         (holder as AlbumViewHolder).onBind(getItem(position))
     }
 
@@ -60,7 +60,7 @@ internal class AlbumsAdapter(val mListener: OnAlbumsAdapterListener) :
     }
 
 
-    inner class AlbumViewHolder(private val dataBinding: ViewDataBinding) : RecyclerView.ViewHolder(dataBinding.root) {
+    inner class AlbumViewHolder(private val dataBinding: ViewDataBinding) : androidx.recyclerview.widget.RecyclerView.ViewHolder(dataBinding.root) {
 
 
         fun onBind(album: Album) {

@@ -1,10 +1,10 @@
 package com.android.artgallery.presentation.photo
 
-import android.arch.lifecycle.Observer
-import android.arch.lifecycle.ViewModelProvider
-import android.arch.lifecycle.ViewModelProviders
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelProviders
 import android.content.Context
-import android.databinding.DataBindingUtil
+import androidx.databinding.DataBindingUtil
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -28,7 +28,7 @@ class PhotosFragment : DaggerFragment(), OnPhotosAdapterListener {
         ViewModelProviders.of(this, viewModelFactory).get(PhotosViewModel::class.java)
     }
 
-    override fun onAttach(context: Context?) {
+    override fun onAttach(context: Context) {
         super.onAttach(context)
         if (context is OnGalleryCallback) {
             mCallback = context

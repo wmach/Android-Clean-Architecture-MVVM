@@ -1,10 +1,10 @@
 package com.android.artgallery.presentation.album
 
-import android.arch.lifecycle.Observer
-import android.arch.lifecycle.ViewModelProvider
-import android.arch.lifecycle.ViewModelProviders
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelProviders
 import android.content.Context
-import android.databinding.DataBindingUtil
+import androidx.databinding.DataBindingUtil
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -30,7 +30,7 @@ class AlbumsFragment : DaggerFragment(), OnAlbumsAdapterListener {
         ViewModelProviders.of(this, viewModelFactory).get(AlbumsViewModel::class.java)
     }
 
-    override fun onAttach(context: Context?) {
+    override fun onAttach(context: Context) {
         super.onAttach(context)
         if (context is OnGalleryCallback) {
             mCallback = context

@@ -1,8 +1,8 @@
 package com.android.artgallery.presentation.photo
 
-import android.databinding.DataBindingUtil
-import android.databinding.ViewDataBinding
-import android.support.v7.widget.RecyclerView
+import androidx.databinding.DataBindingUtil
+import androidx.databinding.ViewDataBinding
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -22,20 +22,20 @@ import java.util.*
  * Created by ZARA on 02/02/2019.
  */
 internal class PhotosAdapter(val mListener: OnPhotosAdapterListener) :
-    RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+    androidx.recyclerview.widget.RecyclerView.Adapter<androidx.recyclerview.widget.RecyclerView.ViewHolder>() {
 
     private val TAG = PhotosAdapter::class.java.name
     private val photos: MutableList<Photo> = ArrayList()
 
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): androidx.recyclerview.widget.RecyclerView.ViewHolder {
         val holderPhotoBinding = DataBindingUtil.inflate<ViewDataBinding>(
             LayoutInflater.from(parent.context), R.layout.holder_photo, parent, false
         )
         return PhotoViewHolder(holderPhotoBinding)
     }
 
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: androidx.recyclerview.widget.RecyclerView.ViewHolder, position: Int) {
         (holder as PhotoViewHolder).onBind(getItem(position))
     }
 
@@ -54,7 +54,7 @@ internal class PhotosAdapter(val mListener: OnPhotosAdapterListener) :
     }
 
 
-    inner class PhotoViewHolder(private val dataBinding: ViewDataBinding) : RecyclerView.ViewHolder(dataBinding.root) {
+    inner class PhotoViewHolder(private val dataBinding: ViewDataBinding) : androidx.recyclerview.widget.RecyclerView.ViewHolder(dataBinding.root) {
 
 
         fun onBind(photo: Photo) {
